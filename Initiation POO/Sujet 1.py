@@ -1,3 +1,4 @@
+# Sujet TP1 initiation POO
 nom = None
 prenom = None
 note_ajotuer = None

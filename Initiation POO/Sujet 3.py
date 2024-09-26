@@ -56,6 +56,24 @@ class LinkedList:
                 current = current.next
             current.next = new_node
             new_node.prev = current
+    def addSorted(self,data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        current = self.head
+        if new_node.data < current.data:
+            new_node.next = self.head
+            self.head.prev = new_node
+            self.head = new_node
+            return
+        while current.next is not None and current.next.data < new_node.data:
+            current = current.next
+            new_node.next = current.next
+        if current.next is not None:
+            current.next.prev = new_node  # Mettre à jour le prev du nœud suivant
+            current.next = new_node  # Le suivant de current devient new_node
+            new_node.prev = current
     def reverseList(self):
         reversedList = LinkedList()
         current = self.head
